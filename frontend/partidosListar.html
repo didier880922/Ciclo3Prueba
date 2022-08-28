@@ -4,7 +4,7 @@
     var name_local;
     var name_away;
     $(document).ready(function ()  {
-    $.get('http://127.0.0.1:8080/game', function(data){
+    $.get('http://127.0.0.1:8080/#', function(data){
         
       for(var i=0; i<data.length; i++){
          var url='http://127.0.0.1:8080/team/'+data[i].local;
