@@ -20,7 +20,7 @@ public class ServicioUsuario {
 
     private ConvertidorUsuario convertidorUsuario = new ConvertidorUsuario();
 
-    public UsuarioDTO login(String nombre, String contraseña){
+    public UsuarioDTO identificar(String nombre, String contraseña){
         Optional<Usuario> usuario = repositorioUsuario.findByNombreUsuario(nombre);
         if (usuario.isEmpty() || !usuario.get().comprobarContraseña(contraseña)){
             throw new LoginException("La información de usuario y contraseña es incorrecta");

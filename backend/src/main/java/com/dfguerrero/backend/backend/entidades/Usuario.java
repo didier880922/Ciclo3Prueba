@@ -36,11 +36,11 @@ public class Usuario {
 
     @Column(nullable = false)
     @Getter(value = AccessLevel.NONE)
-    private String password;
+    private String contraseña;
 
     public boolean comprobarContraseña(String contraseña){
         
-        return this.password.equals(contraseña);
+        return this.contraseña.equals(contraseña);
         
     }
 }

@@ -17,6 +17,6 @@ public class UsuarioDTO {
     private String nombre;
     private String correo;
     private String nombreUsuario;
-    private String password;
+    private String contraseña;
 
 }

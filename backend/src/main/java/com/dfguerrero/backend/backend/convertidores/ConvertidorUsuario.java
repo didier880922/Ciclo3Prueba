@@ -12,7 +12,7 @@ public class ConvertidorUsuario extends Convertidor <Usuario, UsuarioDTO>{
             .nombre(objeto.getNombre())
             .correo(objeto.getCorreo())
             .nombreUsuario(objeto.getNombreUsuario())
-            .password(objeto.getPassword())
+            .contraseña(objeto.getContraseña())
             .build();
     }
 
@@ -23,7 +23,7 @@ public class ConvertidorUsuario extends Convertidor <Usuario, UsuarioDTO>{
             .nombre(objeto.getNombre())
             .correo(objeto.getCorreo())
             .nombreUsuario(objeto.getNombreUsuario())
-            .password(null)
+            .contraseña(null)
             .build();
     }
 

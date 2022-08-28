@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>backend</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Solución a la prueba ciclo3 UNAB</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
