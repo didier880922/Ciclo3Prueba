@@ -1,0 +1,98 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $.get('http://127.0.0.1:8080/team', function (datos) {
+
+      $("#local").html("");
+      for (var i = 0; i < datos.length; i++) {
+        var htm = `<option value="`+ datos[i].id + `">`+ datos[i].name + `</option></tr>`;
+        $("#local").append(htm)
+        $("#away").append(htm)
+      }
+    })
+  })
+
+  $(function () {
+
+    $("#save").on("click", function (e) {
+
+      e.preventDefault();
+
+      var date = $("#dat").val();
+      var local = $("#local").val();
+      var away = $("#away").val();
+      var goals_l = $("#goals_l").val();
+      var goals_v = $("#goals_v").val();
+      
+      fetch("http://127.0.0.1:8080/game", {
+        method: "POST",
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({date, local, away, goals_l, goals_v})
+      }).then(response => response.json()).then(() => alert("Guardado"))
+
+
+    });
+  });
+</script>
+<header>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f2f2f2;
+    }
+
+    .button {
+      line-height: 50px;
+      width: 80%;
+      background-color: #2196F3;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 25px;
+      outline: none;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+
+    .material-form {
+      display: block;
+      width: 300px;
+      padding: 50px 40px;
+      background-color: #fff;
+      font-size: 16px;
+      border-radius: 5px;
+      box-shadow: 4px 4px 4px 0 rgba(128, 128, 128, 0.35);
+      overflow: hidden;
+
+    }
+
+    .nomequi {
+      width: 80%;
+      padding: .375rem .75rem;
+      font-size: 16px;
+    }
+
+    
+  </style>
+</header>
+
+<body>
+  <form class="material-form" name="formulario" id="formulario">
+    <H3 style="text-align: center;">REGISTRAR PARTIDO</H3>
+    <p><b>Fecha:</b> <input type="date" name="dat" id="dat"></p>
+    <p><b>Local:</b> <select name="local" id="local" style="width: 20%;"></select></p>
+    <p><b>Goles Local:</b> <input type="number" name="goals_l" id="goals_l" style="width: 30%;"> </p>
+    <p><b>Visitante:</b> <select name="away" id="away" style="width: 20%;"></select></p>
+    <p><b>Goles Visitante:</b> <input type="number" name="goals_v" id="goals_v" style="width: 30%;"> </p>
+    <br>
+    <input class="button" type="submit" id="save" name="save" value="Guardar Partido"><br>
+    <p align="center"><a href="index.html">Volver</a></p>
+  </form>
+
+</body>

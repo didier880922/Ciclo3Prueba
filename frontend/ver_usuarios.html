@@ -1,0 +1,107 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  
+    $(document).ready(function ()  {
+      $.get('http://127.0.0.1:8080/user', function (data) {
+
+        $("#cuerpo").html("");
+        for (var i = 0; i < data.length; i++) {
+          var tr = `<tr>
+            <td>`+ data[i].id + `</td>
+          <td>`+ data[i].name + `</td>
+          <td>`+ data[i].mail + `</td>
+          <td>`+ data[i].username + `</td>
+        </tr>`;
+          $("#tabla").append(tr)
+        }
+      })
+    })
+  
+</script>
+<header>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f2f2f2;
+    }
+
+    .butt {
+      line-height: 30px;
+      width: 35%;
+      background-color: #2196F3;
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.9em;
+      border: none;
+      border-radius: 25px;
+      outline: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .material-form {
+      display: block;
+      width: 30%;
+      padding: 50px 40px;
+      background-color: #fff;
+      font-size: 16px;
+      border-radius: 5px;
+      box-shadow: 4px 4px 4px 4px rgba(128, 128, 128, 0.35);
+      overflow: hidden;
+      margin: auto;
+      display: block;
+    }
+
+    table {
+      width: 100%;
+      border: 1px solid #000;
+    }
+    table.col {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      width: 25%;
+      text-align: left;
+      vertical-align: top;
+      border-collapse: collapse;
+      padding: 0.3em;
+      caption-side: bottom;
+      border-left: 1px solid #0c0c0c;
+      border-bottom: 1px solid #0c0c0c;
+      border-top: 1px solid #0c0c0c;
+      border-right: 1px solid #0c0c0c;
+    }
+    tbody{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+    thead{
+      background-color: #2196F3;
+      color: #fff;
+    }
+  </style>
+</header>
+
+<body >
+  <div class="material-form">
+    <a href="index.html">Inicio</a>
+    <h2 style="text-align: center;">VER USUARIOS</h2>
+    <table class="col">
+      <thead>
+        <th style="text-align: center;vertical-align: inherit;">Id</th>
+        <th style="text-align: center;vertical-align: inherit;">Nombre</th>
+        <th style="text-align: center;vertical-align: inherit;">Correo</th>
+        <th style="text-align: center;">Nombre Usuario</th>
+      </thead>
+      <tbody id="tabla">
+        
+      </tbody>
+    </table>
+  </div>
+    
+</body>

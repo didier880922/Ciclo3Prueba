@@ -1,0 +1,77 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function(){
+    $("#save").on("click", function(e){
+
+        e.preventDefault();
+        var name=$("#name").val();
+        var mail=$("#mail").val();
+        var username=$("#username").val();
+        var pass=$("#pass").val();
+
+        fetch("http://127.0.0.1:8080/user", {
+        method: "POST",
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({name, mail, username, pass})
+        }).then(response => response.json()).then(()=>alert("Guardado"))
+        });
+    });
+</script>
+<header>
+  <style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f2f2f2;
+    }
+
+    .button {
+        line-height: 50px;
+        width: 80%;
+        margin-top: 15px;
+        background-color: #2196F3;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.1em;
+        border: none;
+        border-radius: 25px;
+        outline: none;
+        transition: all 0.25s;
+        cursor: pointer;
+    }
+    .css-form {
+        display: block;
+        width: 300px;
+        padding: 50px 40px;
+        background-color: #fff;
+        font-size: 16px;
+        border-radius: 5px;
+        box-shadow: 4px 4px 4px 0 rgba(128, 128, 128, 0.35);
+        overflow: hidden;
+        text-align: center;
+    }
+    .nomequi{
+        width: 80%;
+        padding: .375rem .75rem;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+</style>   
+</header>
+<body>
+    <form class="css-form" name="form" id="form">
+      <H3>REGISTRAR USUARIO</H3>
+    <input class="nomequi" type="text" id="name" placeholder="Nombre Completo"><br>
+    <input class="nomequi" type="mail" id="mail" placeholder="Correo electronico"> <br>
+    <input class="nomequi" type="text" id="username" placeholder="Nombre de Usuario">  <br>
+    <input class="nomequi" type="password" id="pass" placeholder="Clave">  <br>
+    <input class="button" type="submit" id="save" Value="Guardar">
+    <br><a href="index.html">Volver</a>
+    </form>
+    
+</body>
