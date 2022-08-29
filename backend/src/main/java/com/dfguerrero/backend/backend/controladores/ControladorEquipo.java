@@ -2,6 +2,7 @@ package com.dfguerrero.backend.backend.controladores;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,4 +33,10 @@ public class ControladorEquipo {
         return servicioEquipo.guardar(equipo);
     }
 
-}
+    /* 
+    @GetMapping
+    public Optional<Equipo> traerNombreEquipo(@PathVariable("id") Integer id){
+        return servicioEquipo.findEquipo(id);
+        */
+
+    }

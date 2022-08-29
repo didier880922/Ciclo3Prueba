@@ -4,25 +4,25 @@
     var local;
     var visitante;
     $(document).ready(function ()  {
-    $.get('http://127.0.0.1:8080/api/equipos', function(data){
+    $.get('http://127.0.0.1:8080/api/partidos', function(data){
         
       for(var i=0; i<data.length; i++){
-         var url='http://127.0.0.1:8080/equipos/'+data[i].local;
-         var url2='http://127.0.0.1:8080/equipos/'+data[i].visitante;
+         var url='http://127.0.0.1:8080/api/partidos/'+data[i].local;
+         var url2='http://127.0.0.1:8080/api/partidos/'+data[i].visitante;
          
         $.get(url , function(local){            
-            local=local.name;
+            local=loca.nombre;
          })
-        $.get(url2 , function(visitor){            
-            name_away=visitor.name;
+        $.get(url2 , function(visitante){            
+            visitante=visitante.nombre;
         })
         
          var tr = `<tr>
-            <td>`+data[i].date+`</td>
-          <td>`+name_local+`</td>
-          <td>`+data[i].goals_l+`</td>
-          <td>`+name_away+`</td>
-          <td>`+data[i].goals_v+`</td>
+            <td>`+data[i].fecha+`</td>
+          <td>`+local+`</td>
+          <td>`+data[i].goles_local+`</td>
+          <td>`+visitante+`</td>
+          <td>`+data[i].goles_visitante+`</td>
         </tr>`;
         $("#tabla").append(tr)
         
@@ -58,7 +58,7 @@
 
     .material-form {
       display: block;
-      width: 40%;
+      width:60%;
       padding: 50px 40px;
       background-color: #fff;
       font-size: 16px;

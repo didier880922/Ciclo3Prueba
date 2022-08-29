@@ -4,7 +4,7 @@
         $("#guardar").on("click", function (e) {
  
             e.preventDefault();
-            var name = $("#nombre").val();
+            var nombre= $("#nombre").val();
 
             fetch("http://127.0.0.1:8080/api/equipos", {
                 method: "POST",
@@ -63,9 +63,8 @@
 <body>
     <form class="material-form"name="formulario" id="formulario">
         <h3>REGISTRAR EQUIPO</h3>
-        <input class="nomequi" type="text" name="name" id="name" placeholder="Nombre del equipo">
-        <input class="button" type="submit" id="save" name="save" value="Registrar equipo">
+        <input class="nomequi" type="text" name="nombre" id="nombre" placeholder="Nombre del equipo">
+        <input class="button" type="submit" id="guardar" name="guardar" value="Registrar equipo">
         <a href="index.html">Volver</a>
     </form>
-    
 </body>

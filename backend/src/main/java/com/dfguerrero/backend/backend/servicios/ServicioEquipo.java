@@ -1,12 +1,14 @@
 package com.dfguerrero.backend.backend.servicios;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dfguerrero.backend.backend.convertidores.ConvertidorEquipo;
 import com.dfguerrero.backend.backend.dto.EquipoDTO;
+import com.dfguerrero.backend.backend.entidades.Equipo;
 import com.dfguerrero.backend.backend.repositorios.RepositorioEquipo;
 
 
@@ -24,6 +26,10 @@ public class ServicioEquipo {
 
     public EquipoDTO guardar(EquipoDTO equipo){
         return convertidorEquipo.aDTO(repositorioEquipo.save(convertidorEquipo.aEntidad(equipo)));
+    }
+
+    public Optional<Equipo> findEquipo(Integer id){
+        return repositorioEquipo.findById(id);
     }
 
 }

@@ -5,17 +5,17 @@
     $("#save").on("click", function(e){
 
         e.preventDefault();
-        var name=$("#name").val();
-        var mail=$("#mail").val();
-        var username=$("#username").val();
-        var pass=$("#pass").val();
+        var nombre=$("#name").val();
+        var correo=$("#mail").val();
+        var nombreUsuario=$("#username").val();
+        var contraseña=$("#pass").val();
 
-        fetch("http://127.0.0.1:8080/#", {
+        fetch("http://127.0.0.1:8080/api/usuarios/registrar", {
         method: "POST",
         mode: 'cors',
         cache: 'no-cache',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({name, mail, username, pass})
+        body: JSON.stringify({nombre, correo, nombreUsuario, contraseña})
         }).then(response => response.json()).then(()=>alert("Guardado"))
         });
     });
