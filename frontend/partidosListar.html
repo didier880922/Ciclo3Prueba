@@ -1,17 +1,17 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    var name_local;
-    var name_away;
+    var local;
+    var visitante;
     $(document).ready(function ()  {
-    $.get('http://127.0.0.1:8080/#', function(data){
+    $.get('http://127.0.0.1:8080/api/equipos', function(data){
         
       for(var i=0; i<data.length; i++){
-         var url='http://127.0.0.1:8080/team/'+data[i].local;
-         var url2='http://127.0.0.1:8080/team/'+data[i].away;
+         var url='http://127.0.0.1:8080/equipos/'+data[i].local;
+         var url2='http://127.0.0.1:8080/equipos/'+data[i].visitante;
          
         $.get(url , function(local){            
-            name_local=local.name;
+            local=local.name;
          })
         $.get(url2 , function(visitor){            
             name_away=visitor.name;

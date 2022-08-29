@@ -1,17 +1,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(function () {
-        $("#save").on("click", function (e) {
+        $("#guardar").on("click", function (e) {
  
             e.preventDefault();
-            var name = $("#name").val();
+            var name = $("#nombre").val();
 
-            fetch("http://127.0.0.1:8080/", {
+            fetch("http://127.0.0.1:8080/api/equipos", {
                 method: "POST",
                 mode: 'cors',
                 cache: 'no-cache',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({name})
+                body: JSON.stringify({nombre})
             }).then(response => response.json()).then(() => alert("Equipo Guardado"))
 
         });
@@ -64,7 +64,7 @@
     <form class="material-form"name="formulario" id="formulario">
         <h3>REGISTRAR EQUIPO</h3>
         <input class="nomequi" type="text" name="name" id="name" placeholder="Nombre del equipo">
-        <input class="button" type="submit" id="save" name="save" value="Guardar">
+        <input class="button" type="submit" id="save" name="save" value="Registrar equipo">
         <a href="index.html">Volver</a>
     </form>
     
